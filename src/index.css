@@ -1,1 +1,5 @@
 @import 'tailwindcss';
+
+:root {
+  --my-grid-cols: 0.125fr 1.5fr 1fr 1fr;
+}
