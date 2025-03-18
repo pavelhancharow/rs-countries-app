@@ -1,10 +1,13 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
 import App from './App.tsx';
+import { ErrorBoundary, Fallback } from './components';
+import './index.css';
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <App />
+    <ErrorBoundary FallbackComponent={Fallback}>
+      <App />
+    </ErrorBoundary>
   </StrictMode>
 );
