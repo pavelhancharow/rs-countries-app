@@ -8,7 +8,7 @@ import { filterByField } from '../../utils';
 import CountriesTableBody from '../CountriesTableBody/CountriesTableBody.tsx';
 import CountriesTableHeadRow from '../CountriesTableHeadRow/CountriesTableHeadRow.tsx';
 import Table from '../Table/Table.tsx';
-import CountriesTableBodyRow from '../TableRow/CountriesTableBodyRow.tsx';
+import CountriesTableBodyRow from '../CountriesTableBodyRow/CountriesTableBodyRow.tsx';
 
 const initFilters = localStorageService.getInitData(
   'filters'
