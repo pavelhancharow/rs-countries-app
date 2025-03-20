@@ -4,3 +4,8 @@ export enum LoadingStatuses {
   Fulfilled = 'fulfilled',
   Rejected = 'rejected',
 }
+
+export enum DirectionStatuses {
+  Asc = 'asc',
+  Desc = 'desc',
+}

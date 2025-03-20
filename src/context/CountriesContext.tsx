@@ -1,10 +1,4 @@
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  useEffect,
-  useReducer,
-} from 'react';
+import { createContext, ReactNode, useEffect, useReducer } from 'react';
 import { LoadingStatuses } from '../enums';
 import { FetchResponse, TypeCountries } from '../models';
 import { countriesService } from '../services';
@@ -29,10 +23,6 @@ type DispatchActionType = {
 const CountriesContext = createContext<CountriesContextState>({
   ...initialState,
 });
-
-const CountriesDispatchContext = createContext<Dispatch<DispatchActionType>>(
-  () => {}
-);
 
 function CountriesContextProvider(props: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -73,9 +63,7 @@ function CountriesContextProvider(props: { children: ReactNode }) {
 
   return (
     <CountriesContext.Provider value={state}>
-      <CountriesDispatchContext.Provider value={dispatch}>
-        {props.children}
-      </CountriesDispatchContext.Provider>
+      {props.children}
     </CountriesContext.Provider>
   );
 }
@@ -113,4 +101,4 @@ const reducer = (
 
 export default CountriesContextProvider;
 
-export { CountriesContext, CountriesDispatchContext };
+export { CountriesContext };
