@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -15,4 +15,4 @@ function Button({ children, ...props }: ButtonProps) {
   );
 }
 
-export default Button;
+export default memo(Button);

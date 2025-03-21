@@ -1,13 +1,23 @@
-import { ReactNode } from 'react';
-import { CountryTableFilters } from '../../models';
+import { memo, useContext, useMemo } from 'react';
+import { CountriesContext } from '../../context/CountriesContext.tsx';
+import { CountryEntity, CountryTableFilters } from '../../models';
+import { filterByField } from '../../utils';
 
 interface TableFilterProps {
-  children: ReactNode;
   onChange: (data: Partial<CountryTableFilters>) => void;
   value: string;
 }
 
-function TableFilter({ children, onChange, value }: TableFilterProps) {
+function TableFilter({ onChange, value }: TableFilterProps) {
+  const state = useContext(CountriesContext);
+
+  const options = useMemo(() => {
+    return filterByField<CountryEntity, 'region'>(
+      state.data.countries,
+      'region'
+    );
+  }, [state.data.countries]);
+
   return (
     <select
       id="region"
@@ -17,9 +27,13 @@ function TableFilter({ children, onChange, value }: TableFilterProps) {
       value={value}
     >
       <option value="All">All Regions</option>
-      {children}
+      {options.map((option) => (
+        <option key={option} value={option}>
+          {option}
+        </option>
+      ))}
     </select>
   );
 }
 
-export default TableFilter;
+export default memo(TableFilter);

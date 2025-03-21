@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, memo } from 'react';
 
 type TableClearFiltersProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -28,4 +28,4 @@ function TableClearFilters(props: TableClearFiltersProps) {
   );
 }
 
-export default TableClearFilters;
+export default memo(TableClearFilters);

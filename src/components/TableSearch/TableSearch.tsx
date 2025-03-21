@@ -1,4 +1,4 @@
-import { FormEvent, useRef } from 'react';
+import { FormEvent, memo, useRef } from 'react';
 import { CountryTableFilters } from '../../models';
 import Button from '../Button/Button.tsx';
 
@@ -58,4 +58,4 @@ function TableSearch(props: TableSearchProps) {
   );
 }
 
-export default TableSearch;
+export default memo(TableSearch);

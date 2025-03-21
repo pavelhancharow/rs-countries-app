@@ -1,10 +1,11 @@
-import { MouseEvent } from 'react';
+import { memo, MouseEvent } from 'react';
 import { DirectionStatuses } from '../../enums';
 import { CountryTableFilters } from '../../models';
 
 interface CountriesTableHeadRowProps {
   onChange: (data: Partial<CountryTableFilters>) => void;
-  filters: CountryTableFilters;
+  direction: DirectionStatuses;
+  orderBy: string;
 }
 
 function CountriesTableHeadRow(props: CountriesTableHeadRowProps) {
@@ -18,7 +19,7 @@ function CountriesTableHeadRow(props: CountriesTableHeadRowProps) {
           'name' | 'population'
         >,
         direction:
-          props.filters.direction === DirectionStatuses.Asc
+          props.direction === DirectionStatuses.Asc
             ? DirectionStatuses.Desc
             : DirectionStatuses.Asc,
       });
@@ -33,14 +34,14 @@ function CountriesTableHeadRow(props: CountriesTableHeadRowProps) {
       <th
         scope="col"
         data-name="name"
-        data-active={props.filters['orderBy'] === 'name'}
+        data-active={props.orderBy === 'name'}
         className="px-6 py-5 flex justify-between items-center cursor-pointer data-[active=true]:text-blue-500 hover:text-blue-800 data-[active=true]:hover:text-blue-800"
         onClick={handleClick}
         title="order by country"
       >
         Country
-        {props.filters['orderBy'] === 'name' &&
-          (props.filters['direction'] === 'asc' ? (
+        {props.orderBy === 'name' &&
+          (props.direction === DirectionStatuses.Asc ? (
             <svg
               className="w-5 h-5"
               viewBox="0 0 24 24"
@@ -78,14 +79,14 @@ function CountriesTableHeadRow(props: CountriesTableHeadRowProps) {
       <th
         scope="col"
         data-name="population"
-        data-active={props.filters['orderBy'] === 'population'}
+        data-active={props.orderBy === 'population'}
         className="px-6 py-5 flex justify-between items-center cursor-pointer data-[active=true]:text-blue-500 hover:text-blue-800 data-[active=true]:hover:text-blue-800"
         onClick={handleClick}
         title="order by population"
       >
         Population
-        {props.filters['orderBy'] === 'population' &&
-          (props.filters['direction'] === 'asc' ? (
+        {props.orderBy === 'population' &&
+          (props.direction === DirectionStatuses.Asc ? (
             <svg
               className="w-5 h-5"
               viewBox="0 0 24 24"
@@ -121,4 +122,4 @@ function CountriesTableHeadRow(props: CountriesTableHeadRowProps) {
   );
 }
 
-export default CountriesTableHeadRow;
+export default memo(CountriesTableHeadRow);

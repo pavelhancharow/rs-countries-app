@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { CountryTableFilters } from '../models';
 
 type UseFilterType = CountryTableFilters;
@@ -6,16 +6,16 @@ type UseFilterType = CountryTableFilters;
 export function useFilter<T extends UseFilterType>(state: T, initialValue: T) {
   const [filters, setFilters] = useState<T>(state);
 
-  const handleChange = (data: Partial<T>) => {
+  const handleChange = useCallback((data: Partial<T>) => {
     setFilters((prev): T => ({ ...prev, ...data }));
-  };
+  }, []);
 
-  const clearFilters = () => {
+  const clearFilters = useCallback(() => {
     setFilters((prev) => ({
       ...prev,
       ...initialValue,
     }));
-  };
+  }, [initialValue]);
 
   return {
     filters,

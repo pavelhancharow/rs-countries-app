@@ -1,12 +1,12 @@
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import { CountryTableFilters } from '../../models';
 import TableClearFilters from '../TableClearFilters/TableClearFilters.tsx';
 import TableFilter from '../TableFilter/TableFilter.tsx';
 import TableSearch from '../TableSearch/TableSearch.tsx';
 
 interface TableProps {
-  options: string[];
-  filters: CountryTableFilters;
+  country: string;
+  region: string;
   thead: ReactNode;
   children: ReactNode;
   clearFilters: () => void;
@@ -18,18 +18,9 @@ function Table(props: TableProps) {
   return (
     <table className="flex flex-col w-full h-[73vh] shadow-xl shadow-gray-600/50 rounded-lg overflow-hidden">
       <caption className="flex gap-4 py-2 px-2 w-full bg-white">
-        <TableSearch
-          onChange={props.onChange}
-          value={props.filters['country']}
-        />
+        <TableSearch onChange={props.onChange} value={props.country} />
 
-        <TableFilter onChange={props.onChange} value={props.filters['region']}>
-          {props.options.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </TableFilter>
+        <TableFilter onChange={props.onChange} value={props.region} />
 
         <TableClearFilters
           onClick={props.clearFilters}
@@ -48,4 +39,4 @@ function Table(props: TableProps) {
   );
 }
 
-export default Table;
+export default memo(Table);
