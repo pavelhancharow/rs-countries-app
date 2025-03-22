@@ -23,25 +23,28 @@ These tasks were analyzed to assess the app's responsiveness and identify potent
 
 ### 🔍 The App Performance Before Optimizations
 
-**📷 React Profiler (Before Optimization):**  
+#### 📷 React Profiler (Before Optimization):
+
 ![Before Optimization](./docs/profiling/before/before-optimization.gif)
 
-### 📈 Key Findings (Before Optimization)
+#### 📈 Key Findings (Before Optimization):
 
-| Commit Duration | Render Duration <br/> `<CountriesTable/>` | Interactions                                 | Flame Graph                                               | Ranked Chart                                                |
-|-----------------|-------------------------------------------|----------------------------------------------|-----------------------------------------------------------|-------------------------------------------------------------|
-| **3.1ms**       | **0.9ms**                                 | Searching for countries containing _"land"_  | ![Flame Graph](./docs/profiling/before/flame-graph-1.png) | ![Ranked Chart](./docs/profiling/before/ranked-chart-1.png) |
-| **2.7ms**       | **0.9ms**                                 | Filtering by region _"Europe"_ | ![Flame Graph](./docs/profiling/before/flame-graph-2.png) | ![Ranked Chart](./docs/profiling/before/ranked-chart-2.png) |
-| **2.7ms**       | **0.9ms**                                 | Sorting by population _(descending)_         | ![Flame Graph](./docs/profiling/before/flame-graph-3.png) | ![Ranked Chart](./docs/profiling/before/ranked-chart-3.png) |
-| **2.2ms**       | **0.6ms**                                 | Sorting by country _(ascending)_             | ![Flame Graph](./docs/profiling/before/flame-graph-4.png) | ![Ranked Chart](./docs/profiling/before/ranked-chart-4.png) |
-| **32.4ms**      | **1.5ms**                                 | Resetting all filters                        | ![Flame Graph](./docs/profiling/before/flame-graph-5.png) | ![Ranked Chart](./docs/profiling/before/ranked-chart-5.png) |
+| Commit Duration | Render Duration <br/> `<CountriesTable/>` | Interactions                                | Flame Graph                                               | Ranked Chart                                                |
+| --------------- | ----------------------------------------- | ------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------- |
+| **3.1ms**       | **0.9ms**                                 | Searching for countries containing _"land"_ | ![Flame Graph](./docs/profiling/before/flame-graph-1.png) | ![Ranked Chart](./docs/profiling/before/ranked-chart-1.png) |
+| **2.7ms**       | **0.9ms**                                 | Filtering by region _"Europe"_              | ![Flame Graph](./docs/profiling/before/flame-graph-2.png) | ![Ranked Chart](./docs/profiling/before/ranked-chart-2.png) |
+| **2.7ms**       | **0.9ms**                                 | Sorting by population _(descending)_        | ![Flame Graph](./docs/profiling/before/flame-graph-3.png) | ![Ranked Chart](./docs/profiling/before/ranked-chart-3.png) |
+| **2.2ms**       | **0.6ms**                                 | Sorting by country _(ascending)_            | ![Flame Graph](./docs/profiling/before/flame-graph-4.png) | ![Ranked Chart](./docs/profiling/before/ranked-chart-4.png) |
+| **32.4ms**      | **1.5ms**                                 | Resetting all filters                       | ![Flame Graph](./docs/profiling/before/flame-graph-5.png) | ![Ranked Chart](./docs/profiling/before/ranked-chart-5.png) |
 
 ---
 
 ### 🔍 The App Performance After Optimizations
 
-**📷 React Profiler (After Optimization):**  
+#### 📷 React Profiler (After Optimization):  
 ![After Optimization](./docs/profiling/after/after-optimization.gif)
+
+#### 📈 Key Findings (After Optimization):
 
 | Commit Duration                     | Render Duration <br/> `<CountriesTable/>` | Interactions                                | Flame Graph                                              | Ranked Chart                                               |
 | ----------------------------------- | ----------------------------------------- | ------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------- |
